@@ -1,0 +1,26 @@
+title: "ConBio Content Outlines"
+author: "Dr. Alicia M. Rich"
+date: "Fall 2024"
+output:
+  bookdown::html_document2:
+    css: "syllabus.css"
+    toc: true
+    toc_location: "before"
+    toc_depth: 4
+    number_sections: true
+    toc_float: true
+    code_folding: "hide"
+    fig_caption: true
+  bibliography: "biol4120_F24.bib"
+  link_citations: true
+  csl: ["/Users/aliciamrich/RStudioMacbook/Bibliographies/plos.csl"]
+params:
+  today:    as_date(now())
+  semester: "Fall 2024"
+  semstart: "2024-08-26" #first Monday of the semester
+  daysweek: [0, 2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
+  time: "16:00" #starting time of the class in 24h format
+  finals: "2024-12-16" #first Monday of finals week
+  local: "/Users/aliciamrich/RStudioMacbook/GitRepos/teaching/"
+editor_options: 
+  chunk_output_type: inline

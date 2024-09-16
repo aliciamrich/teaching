@@ -1,0 +1,250 @@
+---
+title: "Syllabus Supplement for Bio 2 Lab"
+author: ""
+date: ""
+output:
+  bookdown::html_document2:
+    css: "syllabus.css"
+    toc: true
+    toc_location: "before"
+    toc_depth: 4
+    number_sections: false
+    toc_float: true
+    code_folding: "hide"
+    fig_caption: true
+  bibliography: "biol4120_F24.bib"
+  link_citations: true
+  csl: ["/Users/aliciamrich/RStudioMacbook/Bibliographies/plos.csl"]
+params:
+  today:    as_date(now())
+  semester: "Fall 2024"
+  semstart: "2024-08-26" #first Monday of the semester
+  daysweek: [2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
+  time: "13:00" #starting time of the class in 24h format
+  finals: "2024-12-16" #first Monday of finals week
+editor_options: 
+  chunk_output_type: inline
+---
+
+<img src="Header_BIOL1750.png" alt="BIOL 1750 Header Graphic" style="width:100%; height:auto;">
+
+# <span class="hidden-heading">Setup</span>
+
+```{r load packages, include = F, echo = F}
+library(bibtex)
+library(BiocManager)
+library(bookdown)
+library(conflicted)
+library(devtools)
+library(dplyr)
+library(fontawesome)
+library(ggsci)
+library(ggpubr)
+library(glue)
+library(gt)
+library(gtable)
+library(gtExtras)
+library(htmltools)
+library(kableExtra)
+library(knitr)
+library(knitcitations)
+library(lubridate)
+library(magrittr)
+library(MASS)
+library(paletteer)
+library(pandoc)
+library(png)
+library(purrr)
+library(rcompanion)
+library(RefManageR)
+library(rlang)
+library(rmarkdown)
+library(stringr)
+library(tibble)
+library(tidyr)
+library(tinytex)
+library(usethis)
+library(utf8)
+conflicts_prefer(dplyr::lag)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(RefManageR::cite)
+```
+
+## <span class="hidden-heading">Constructing Tables</span>
+
+```{r class-culture-tbl, message=FALSE, warning=FALSE, include=FALSE}
+class.culture <- tribble(
+  ~Value           ,  ~Rule                                                                                          , ~Icon         ,
+  "1. Authenticity"   , "Speak up if you are confused or struggling."                                                   , "circle-check",
+  "1. Authenticity"   , "Attempt to manipulate or mislead your instructors or classmates."                              , "ban"         ,
+  "1. Authenticity"   , "Be honest with yourself about your needs & capabilities."                                      , "circle-check",
+  "1. Authenticity"   , "Hide or deny your biases or areas for growth."                                                 , "ban"         , 
+  "1. Authenticity"   , "Use tools like AI and collaboration with integrity."                                           , "circle-check", 
+  "1. Authenticity"   , "Present direct results from AI tools like ChatGPT as your own work."                           , "ban"         ,  
+  "1. Authenticity"   , "Take full personal responsibility for mistakes or missed opportunities."                       , "circle-check", 
+  "1. Authenticity"   , "Deflect blame or redirect responsibilities on your instructor or your classmates."             , "ban"         ,  
+  "2. Curiosity"      , "Use the readings and assignments as a guide."                                                  , "circle-check", 
+  "2. Curiosity"      , "Let the syllabus limit your investigation."                                                    , "ban"         , 
+  "2. Curiosity"      , "Ask thoughtful questions of yourself, your instructor, and your colleagues."                   , "circle-check", 
+  "2. Curiosity"      , "Expect me to fill your brain with facts for you to recall."                                    , "ban"         , 
+  "2. Curiosity"      , "Bring your ideas to my attention."                                                             , "circle-check", 
+  "2. Curiosity"      ,  "Assume I will not be open to changing or expanding your options."                             , "ban"         , 
+  "3. Inclusion"      , "Make space for your colleagues to gain just as much as you."                                   , "circle-check", 
+  "3. Inclusion"      , "Dominate discussions."                                                                         , "ban"         , 
+  "3. Inclusion"      , "Maintain awareness and openness to seeing your bias and privilege."                            , "circle-check", 
+  "3. Inclusion"      , "Assume everyone will share your perspectives or background."                                   , "ban"         , 
+  "3. Inclusion"      , "Bring your barriers to my attention so I can help you navigate them."                          , "circle-check", 
+  "3. Inclusion"      , "Assume only you are navigating barriers or that barriers are insurmountable with cooperation." , "ban"         ) %>%
+  arrange(Value, desc(Icon)) %>%
+  
+  gt(rowname_col = "Icon", groupname_col = "Value") %>%
+  opt_table_lines(extent = "none") %>%
+  tab_header(title = "Classroom Culture", subtitle = "The following three values form the foundation of my classroom culture and expectations:") %>%
+  
+  tab_style(style     = list(cell_text(size   = "x-large",
+                                       align  = "left",
+                                       weight = "bold",
+                                       v_align = "bottom")),
+            locations = cells_title(groups    = "title")) %>%
+  tab_style(style     = list(cell_text(style   = "italic",
+                                       align   = "left",
+                                       v_align = "bottom")),
+            locations = cells_title(groups    = "subtitle")) %>%
+  
+  tab_style(style     = list(
+                        cell_fill(color    = "#C48329FF"),
+                        cell_borders(sides = "top",
+                                     color = "black",
+                                     weight = px(3),
+                                     style = "double"),
+                        cell_text(weight    = "bold",
+                                  color     = "white",
+                                  transform = "uppercase",
+                                  size      = "large",
+                                  stretch   = "expanded",
+                                  style     = "oblique")),
+            locations = cells_row_groups()) %>%
+  
+  tab_style(style = cell_fill(color = "#514A2E40"),
+            locations = cells_body(rows = Icon == "circle-check")) %>%
+  
+  tab_style(style = cell_fill(color = "#8E411540"),
+            locations = cells_body(rows = Icon == "ban")) %>%
+  
+  tab_style(style     = list(cell_text(weight   = "bold"),
+                             cell_borders(sides = "bottom")),
+            locations = cells_column_labels()) %>%
+  
+  cols_align(align = "left") %>%
+  
+  fmt_icon(columns = stub(),
+           rows         = Icon == "circle-check",
+           height       = "1em",
+           fill_color   = "#514A2EFF") %>%
+  fmt_icon(columns = stub(),
+           rows         = Icon == "ban",
+           height       = "1em",
+           fill_color   = "#8E4115FF") %>%
+  
+  tab_style(style = list(cell_fill(color = "#514A2E40"),
+                         cell_text(weight = "bolder")),
+            locations = cells_stub(rows = Icon == "circle-check")) %>%
+  
+  tab_style(style = list(cell_fill(color = "#8E411540"),
+                         cell_text(weight = "bolder")),
+            locations = cells_stub(rows = Icon == "ban")) %>%
+  cols_label(Rule  ~ "")
+```
+
+# Instructor
+
+<div class="float-container">
+<div class="box-header-p">Alicia M. Rich, Ph.D., Assistant Professor of Biology</div>
+<div class="float-box-p">
+ <img src="Headshot.png" alt="Instructor Photo" class="info-box-image">
+ <p><strong>Please call me:</strong> Dr. Rich or Professor Rich (she/her)</p>
+ <p><strong>Contact:</strong> <a href="mailto:aliciarich@unomaha.edu" class="email">aliciarich@unomaha.edu</a></p>
+ <p><strong>Office:</strong> Allwine Hall Room 413</p>
+ <p><strong>Office Hours:</strong> By appointment on W/R from 10-12</p>
+ <p><em>Please do not use Canvas messages to contact me. I will not monitor those.</em></p>
+ <p>I will return your emails within 48 business hours, but I may not check my email during evenings or weekends. If you are still waiting for a response after three business days, please reach out again.</p>
+ <p>If you would like to schedule an in-person meeting, please request this at least 48 hours in advance. I do not schedule student meetings outside regular workday hours <em>(M-F, 9-5)</em>, so please do not ask me to meet with you in the evenings or on weekends.</p>
+  <p><strong>Ask me about:</strong> Primates, Field Research, Zoos, Molecular Biology, Social Justice, Anthropology, Trail Running, Swimming</p>
+</div>  
+</div>
+
+# Expectations
+
+<div class="gif-container">
+<img src="rory_grades.gif" alt="Rory Good Grades" class="gif-item"></img>
+<div class="flex-item">
+```{r  echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, results="asis"}
+class.culture
+```
+</div>
+
+## Engagement
+
+<div class="box-container">
+<div class="box-superheader-o"> You will only succeed in this class if you take full responsibility for your processing and retention of the content. </div>
+<div class="box-subheader-o"> In other words, you need to develop and refine your own process of taking notes and maintaining records to process class content in real-time and retain key points after you leave.</div> 
+<div class="info-box-o">
+While I am deeply committed to open science, I believe that open access to teaching materials has deincentized this important facet of classroom engagement (notetaking, that is). As a result, you should not expect to access any and all slides and other teaching materials for this class in any asynchronous format (e.g., posting my slides to canvas or emailing them after class). I will provide some general class Agendas/Outlines to help guide your note-taking early in the semester, and you are more than welcome to take pictures of the slides during class or use other forms of recording to help you later, but you must attend class and pay attention to grasp the key concepts and decide which ideas or concepts are worth noting for later.</div>
+<div class="box-subheader-o"> This also means that if you miss class, you should rely on <strong>reciprocal</strong> collaboration with your classmates, if they are willing to share their notes with you. This is also an important skill for learning how to work on teams and collaborate with colleagues for long-term success. <strong>If you do miss class, please, do not ask me to provide a comprehensive written or oral record of what you missed.</strong> Work directly with Accessibility Services if legitimate barriers arise, and then I will arrange official make-up options for you.</div>
+</div>
+
+# University Policies
+
+## Accommodations
+The University of Nebraska at Omaha is committed to providing reasonable accommodations for all persons with disabilities. This syllabus is available in alternate formats upon request. Reasonable accommodations are offered to students who are registered with the [Accessibility Services Center (ASC)](https://www.unomaha.edu/student-life/accessibility/index.php), and their requests are made sufficiently in advance. 
+
+>**For more information, contact ASC.**
+>**Location**: 104 H&K  
+>**Phone**: 402.554.2872  
+>**Email**: unoaccessibility@unomaha.edu.  
+
+## Academic Integrity
+**Plagiarism and cheating of any kind on an examination, quiz, or assignment will result at least in an "F" for that assignment** (and may, depending on the severity of the case, lead to an "F" for the entire course) and may be subject to appropriate referral to the Office of Academic and Student Affairs for further action. I will assume that for this course, you will adhere to the University of Nebraska at Omaha policies and maintain the highest academic integrity standards. In other words, don't cheat by giving answers to others or taking them from anyone else. I will also adhere to the highest standards of academic integrity, so please do not ask me to change (or expect me to change) your grade illegitimately or to bend or break the rules for one person that will not apply to everyone.  
+  
+## Title IX Sexual Misconduct
+As your instructor, one of my responsibilities is to help create a safe learning environment on our campus. Title IX and our Sexual Misconduct policy prohibit sexual misconduct.  If you have experienced sexual misconduct or know someone who has, the University can help. I encourage you to [visit the Title IX website to learn more](https://www.unomaha.edu/university-compliance/civil-rights/title-ix-information/index.php).  If you seek help and want to speak to someone confidentially, you can contact the [Counseling and Psychological Services (CAPS)](https://www.unomaha.edu/student-life/wellness/counseling-and-psychological-services/index.php).  
+  
+**It is also crucial that you know that federal regulations and University policy require me to promptly convey any information about potential sexual misconduct known to me to UNO’s Title IX Coordinator.**  In that event, they will work with a few others on campus to ensure appropriate measures are taken, and resources are available to the student who may have been harmed.  Protecting a student’s privacy is of utmost concern, and all involved will only share information with those who need to know to ensure the University can respond and assist.
+
+
+<div class="box-container">
+<div class="box-superheader-o">Office of Student Leadership, Involvement, and Inclusion</div>
+<div class="box-subheader-o">The university's former Gender and Sexuality Resource Center has been reorganized to form a more intersectional program.</div>
+<div class="info-box-o">
+<p>This office is meant as a space for students to learn from each other, build relationships, and foster an environment of understanding and respect. If you are interested in contributing to or benefiting from their work to make UNO a more inclusive environment or you find yourself in need of support and resources, I recommend you start with a visit to their office. You can find them in rooms 112 and 113 of the Milo Bail Student Center or [online.](https://www.unomaha.edu/office-of-student-leadership-involvement-and-inclusion/)</p>
+</div>
+</div>
+
+## Code of Student Rights, Responsibilities, and Conduct
+Students at the University of Nebraska Omaha are expected to maintain standards of personal integrity per institutional goals for the success of all students. This means students are expected to assume responsibility for their actions, observe national, state, and local laws, follow university policies, and respect the rights and property of all people. For more information, [see Student Conduct and Community Standards.](https://www.unomaha.edu/student-life/student-conduct-and-community-standards/index.php)
+
+## Grading Policies
+
+### Grade Appeal
+Individuals who believe that their grade in a particular course does not properly reflect their performance or that the instructor acted arbitrarily or capriciously in determining the grade should first contact the instructor to determine the rationale for the grade or if there was an error in reporting. Consultation with the instructor should occur before formal action regarding a grade appeal.  
+  
+After the instructor has provided the rationale for the grade in question and has indicated that no error in reporting was made, the individual may petition the department/school for reconsideration. In such instances, the student should contact the department chair/school director to obtain information on the procedures to follow in requesting an appeal at the department/school level.  
+
+<div class="info-box-o">
+<p>The grade appeal process exists to correct inadvertent errors or misunderstandings about your grade, not to extend the term we've been given to work together for this class. <strong>Please, do not contact me after the final grade deadline to request an opportunity to revise, resubmit, or update work that has already been properly assigned, assessed, and graded unless you have already worked directly with the Accessibility Services Center and reached out to me at their recommendation.</strong> I will not consider any continued work on your progress in this course or attention to your materials without extremely extenuating circumstances. If you regret your performance in the class or opportunities you have missed and would like a second chance, I encourage you to re-enroll the next time I am teaching this course and follow the same standards and policies as your classmates.</p>
+</div>
+
+### Dropping a Course  
+A class can be dropped from your schedule via MavLINK until the last day to withdraw.  The last day to withdraw can be [found on the Academic Calendar](https://www.unomaha.edu/registrar/academic-calendar.php). You can click the "refund" link next to each class in your schedule if you are enrolled.  You can also contact the Office of the University Registrar to verify the last day to withdraw.  
+  
+Drops can only be completed in your course's 100% refund period. If you drop the course from your schedule during this period, it will not be listed on your academic transcript. Withdraws can be completed until the last day to withdraw for the semester.  **If you withdraw from a course, a grade of "W" is given for that course, which will be listed on your academic transcript.  "W" grades have no impact on your academic GPA.** 
+
+
+<div class="box-container">
+<div class="subtle-header">Other Notices</div>
+<div class="subtle-box"><strong>Right of Revision</strong>
+<p><em>The instructor reserves the right to revise or adjust the course syllabus best to accommodate the pace and needs of the students.</em></p>
+<p><strong>Fair Use Policy</strong></p>
+<p>Copying or recording synchronous classes and asynchronous course materials without the express prior approval of Dr. Rich is prohibited. All copies and recordings remain the property of UNO and Dr. Rich. UNO and Dr. Rich reserve the right to retrieve, inspect, or destroy them after their intended use. These policies are not intended to affect the rights of students with disabilities under applicable law or UNO policies.</p></div>
+</div>
+

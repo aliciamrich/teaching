@@ -1,0 +1,304 @@
+---
+title: "Update Schedule - Conservation Biology"
+author: "Dr. Rich"
+date: "Fall 2024"
+output:
+  bookdown::html_document2:
+    css: "syllabus.css"
+    toc: true
+    toc_location: "before"
+    toc_depth: 4
+    number_sections: true
+    toc_float: true
+    code_folding: "hide"
+    fig_caption: true
+  bibliography: "biol4120_F24.bib"
+  link_citations: true
+  csl: ["/Users/aliciamrich/RStudioMacbook/Bibliographies/plos.csl"]
+params:
+  today:    as_date(now())
+  semester: "Fall 2024"
+  semstart: "2024-08-26" #first Monday of the semester
+  daysweek: [0, 2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
+  time: "16:00" #starting time of the class in 24h format
+  finals: "2024-12-16" #first Monday of finals week
+  local: "/Users/arich/Library/CloudStorage/GoogleDrive-aliciamrich@gmail.com/Other computers/My MacBook Pro/RStudioMacbook/GitRepos/teaching/"
+editor_options: 
+  chunk_output_type: inline
+  
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+source(paste0(params$local, "dependencies/setup.R"))
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+holidays <- c(
+              ymd_hm(paste("2024-09-02", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-10-21", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-10-22", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-11-26", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-11-27", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-11-28", params$time), tz = "America/Chicago"),
+              ymd_hm(paste("2024-11-29", params$time), tz = "America/Chicago"))
+
+nweeks       <- as.numeric(interval(params$semstart, params$finals), unit = "days")/7
+course_start <-        ymd_hm(paste(params$semstart, params$time), tz = "America/Chicago")
+
+schedule_df <- expand.grid(
+  Week             = 1:nweeks,
+  Date             = params$daysweek,
+  stringsAsFactors = FALSE
+) %>%
+  mutate(
+    Date        = course_start + weeks(Week - 1) + days(Date)
+  ) %>%
+  arrange(Date) %>%
+  group_by(Week) %>%
+  mutate(day_week = row_number()) %>%
+  ungroup()
+
+schedule_conbio <- read.recent.version.csv("data", "ScheduleConBioF24_") %>%
+  left_join(schedule_df) %>%
+   mutate(row_shade = case_when(Week == 1  ~ "#EBDDC34D",
+                                Week == 2  ~ "#775F554D",
+                                Week == 3  ~ "#94B6D24D",
+                                Week == 4  ~ "#DD80474D",
+                                Week == 5  ~ "#A5AB814D",
+                                Week == 6  ~ "#D8B25C4D",
+                                Week == 7  ~ "#7BA79D4D",
+                                Week == 8  ~ "#968C8C4D",
+                                Week == 9  ~ "#EBDDC34D",
+                                Week == 10 ~ "#775F554D",
+                                Week == 11 ~ "#94B6D24D",
+                                Week == 12 ~ "#DD80474D",
+                                Week == 13 ~ "#A5AB814D",
+                                Week == 14 ~ "#D8B25C4D",
+                                Week == 15 ~ "#7BA79D4D",
+                                Week == 16 ~ "#968C8C4D")) %>%
+  mutate(row_shade  = if_else(str_detect(Topic, ".+Exam.+"), "black", row_shade)) %>%
+  mutate(Topic = ifelse(Date %in% holidays, "No Class", Topic)) %>%
+  ungroup() %>%
+  arrange(Date) %>%
+  mutate(AssignedPages = ReadEnd - ReadStart,
+         LecturePages  = PlanEnd - PlanStart) %>%
+  mutate(Due = if_else(
+           is.na(ReadCh), "",
+           str_glue("Read Ch ", "{ReadCh}", " - pgs ", "{ReadStart}", "-", "{ReadEnd}", fixed(" <em>("), "{AssignedPages}", fixed(" pp)</em>")))) %>%
+  mutate(Due = case_when(
+            is.na(SkillsAssignment) ~ Due,
+           !is.na(SkillsAssignment) & Due == "" ~ str_glue("Submit Skills Assignment ", "{SkillsAssignment}"),
+           !is.na(SkillsAssignment) & Due != "" ~ str_glue("{Due}", "<br>& ", "Submit Skills Assignment ", "{SkillsAssignment}"))) %>%
+  mutate(Prep_icon = case_when(
+    Due    == ""                               ~ "",
+     is.na(ReadCh)  & !is.na(SkillsAssignment) ~ "pencil",
+    !is.na(ReadCh)  & !is.na(SkillsAssignment) ~ "book,pencil",
+    !is.na(ReadCh)  &  is.na(SkillsAssignment) ~ "book"),
+    Week          = if_else(
+    Week          != lag(Week) | row_number() == 1, as.character(Week), ""),
+    Date          = as_date(Date)) %>%
+  mutate(stub = if_else(
+      Date < today(), "calendar-check", "calendar"
+  )) %>%
+  select(stub           ,
+         Week           ,
+         Theme          ,
+         Date           ,
+         Topic          ,
+         Prep_icon      ,
+         Due            ,
+         row_shade   )
+
+schedule_gt_conbio <- schedule_conbio %>% 
+  
+  gt(groupname_col = "Theme") %>%
+  
+                   rows_add(Date          = as_date("2024-12-19"),
+                            stub          = "calendar",
+                            Week          = "",
+                            Topic         = "5:00 PM - Final Exam",
+                            row_shade     = "black",
+                            Prep_icon     = "",
+                            Due           = "")  %>%
+                  
+                   fmt_markdown(columns   = Due) %>%
+  
+  tab_footnote(md("Details will be available through Canvas Assignments. You will also submit your assignment by 4:00 PM on the deadline through Canvas Assignments."), locations = cells_body(columns = Due,
+                                       rows    = Prep_icon == "pencil" | Prep_icon == "book,pencil")) %>%
+  
+                   fmt_icon(columns       = Prep_icon,
+                            rows          = Prep_icon != "",
+                            sep           = "  ",
+                            height        = "1.2em")  %>%
+  
+                   fmt_icon(columns       = stub)  %>%
+  
+                   fmt_date(columns       = Date,
+                            date_style    = "MMMEd") %>%
+
+                  cols_label(stub      ~ "",
+                             Prep_icon ~ "Due",
+                             Due       ~ "",
+                             Week      ~ "Wk") %>%
+                  cols_move_to_start(columns = c("Week", "stub", "Date", "Topic", "Prep_icon")) %>%
+                  opt_table_lines(extent = "none") %>%
+                  tab_style(style = list(
+                                      cell_fill(color = from_column("row_shade")),
+                                      cell_text(size      = "small",
+                                                weight    = "bold",
+                                                align     = "left",
+                                                v_align   = "top",
+                                                transform = "uppercase")),
+                            locations = cells_body(columns = Week)) %>%
+                      tab_style(style = list(
+                                      cell_fill(color       = from_column("row_shade")),
+                                      cell_text(v_align     = "top",
+                                                align       = "left")),
+                             locations = cells_body(columns = c("stub", "Topic", "Prep_icon", "Due"),
+                                                     rows = row_shade != "black")) %>%
+                      tab_style(style = list(
+                                      cell_fill(color       = from_column("row_shade")),
+                                      cell_text(v_align     = "top",
+                                                align       = "left",
+                                                color       = "white")),
+                             locations = cells_body(columns = c("stub", "Topic", "Prep_icon", "Due"),
+                                                     rows = row_shade == "black")) %>%
+  
+                      tab_style(style = list(
+                                      cell_fill(color        = from_column("row_shade")),
+                                      cell_text(stretch      = "condensed",
+                                                size         = "small",
+                                                transform    = "uppercase",
+                                                weight       = "bolder",
+                                                align        = "left",
+                                                v_align      = "top")),
+                              locations = cells_body(columns = Date,
+                                                     rows = row_shade != "black")) %>%
+  
+                    tab_style(style = list(
+                                      cell_fill(color     = from_column("row_shade")),
+                                      cell_borders(sides  = c("top", "bottom")),
+                                      cell_text(weight    = "bolder",
+                                                size      = "small",
+                                                align     = "left",
+                                                v_align   = "top",
+                                                style     = "oblique",
+                                                transform = "uppercase",
+                                                color     = "white")),
+                              locations = cells_body(rows = row_shade == "black")) %>%       
+                    tab_style(style = list(
+                                          cell_text(style     = "oblique",
+                                                    transform = "uppercase",
+                                                    align     = "left",
+                                                    size      = "small",
+                                                    weight    = "bolder")),
+                              locations = cells_column_labels()) %>%
+  
+                   cols_align(align = "center", columns = c("stub", "Prep_icon")) %>%
+                   
+                   tab_header(title    = "Course Schedule",
+                              subtitle = md("*Subject to change at any time*")) %>%
+                   tab_style(style = cell_text(
+                                       align   = "left",
+                                       weight  = "bolder",
+                                       size    = "xx-large"),
+                             locations = cells_title(groups = "title")) %>%
+                   tab_style(style = list(
+                                  cell_borders(sides = "bottom"),
+                                  cell_text(
+                                       align   = "left",
+                                       stretch = "ultra-expanded")),
+                             locations = cells_title(groups = "subtitle")) %>%
+  
+                  tab_style(style = list(
+                                      cell_fill(color = "#775F55FF"),
+                                      cell_borders(sides  = "top"),
+                                      cell_text(stretch   = "ultra-expanded",
+                                                color     = "white",
+                                                size      = "small",
+                                                indent    = px(8),
+                                                style     = "oblique",
+                                                weight    = "bolder",
+                                                transform = "uppercase",
+                                                align     = "left")),
+                             locations = cells_row_groups(groups = contains("Foundations"))) %>%
+                  tab_style(style = list(
+                                      cell_fill(color = "#94B6D2FF"),
+                                      cell_borders(sides  = "top"),
+                                      cell_text(stretch   = "ultra-expanded",
+                                                color     = "white",
+                                                size      = "small",
+                                                indent    = px(8),
+                                                style     = "oblique",
+                                                weight    = "bolder",
+                                                transform = "uppercase",
+                                                align     = "left")),
+                             locations = cells_row_groups(groups = contains("Importance"))) %>%
+                  tab_style(style = list(
+                                      cell_fill(color = "#DD8047FF"),
+                                      cell_borders(sides  = "top"),
+                                      cell_text(stretch   = "ultra-expanded",
+                                                color     = "white",
+                                                size      = "small",
+                                                indent    = px(8),
+                                                style     = "oblique",
+                                                weight    = "bolder",
+                                                transform = "uppercase",
+                                                align     = "left")),
+                             locations = cells_row_groups(groups = contains("Threats"))) %>%
+                  tab_style(style = list(
+                                      cell_fill(color = "#A5AB81FF"),
+                                      cell_borders(sides  = "top"),
+                                      cell_text(stretch   = "ultra-expanded",
+                                                color     = "white",
+                                                size      = "small",
+                                                indent    = px(8),
+                                                style     = "oblique",
+                                                weight    = "bolder",
+                                                transform = "uppercase",
+                                                align     = "left")),
+                             locations = cells_row_groups(groups = contains("Approaches"))) %>%
+
+                   cols_hide(columns = c("row_shade")) %>%
+                   cols_width(
+                              stub      ~ px(30),
+                              Week      ~ px(30),
+                              Date      ~ px(110),
+                              Topic     ~ px(350),
+                              Prep_icon ~ px(75),
+                              Due       ~ px(300)) %>%
+                   
+                   tab_header(title    = "Course Schedule",
+                              subtitle = paste0("Subject to change - last updated on ", today())) %>%
+                   tab_style(style = cell_text(
+                                       align   = "left",
+                                       weight  = "bolder",
+                                       size    = "xx-large"),
+                             locations = cells_title(groups = "title")) %>%
+                   tab_style(style = list(
+                                  cell_borders(sides = "bottom"),
+                                  cell_text(
+                                       align   = "left",
+                                       style   = "italic")),
+                             locations = cells_title(groups = "subtitle")) %>%
+                   tab_footnote(md("You are responsible for in-class announcements and/or updates made on Canvas. Please keep your records organized."),
+                                locations = cells_title(groups = "subtitle")) %>%
+                   tab_footnote("You should come to class having already read that day's assigned pages.",
+                                locations = cells_column_labels(columns = Prep_icon)) %>%
+                   tab_footnote(
+    "You will take the exam in class and will be able to access hard-copy materials (i.e., hand-written or printed notes) but nothing electronic.",
+                                locations = cells_body(columns = "Topic",
+                                                       rows    = row_shade == "black"))
+
+gtsave(schedule_gt_conbio, paste0(params$local, "schedules/biol4120_schedule_F24.html"))
+gtsave(schedule_gt_conbio, paste0(params$local, "schedules/biol4120_schedule_F24.png"))
+
+schedule_gt_conbio
+```
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+schedule_hhe    <- read.recent.version.csv("data", "ScheduleHHEF24_")
+```
+

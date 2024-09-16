@@ -1,0 +1,43 @@
+"0","source(paste0(params$local, ""dependencies/setup.R""))"
+"2","Bioconductor version 3.19 (BiocManager 1.30.25), R 4.4.1 (2024-06-14)
+"
+"2","Loading required package: usethis
+"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"2","Loading required package: ggplot2
+"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::filter over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::select over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::left_join over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::inner_join over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::full_join over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::semi_join over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::rename over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mggplot2[38;5;232m[22m::margin over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mggplot2[38;5;232m[22m::theme_classic over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mggplot2[38;5;232m[22m::ggplot over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mggplot2[38;5;232m[22m::theme_minimal over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mggplot2[38;5;232m[22m::aes over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mdplyr[38;5;232m[22m::lag over any other package.[39m
+"
+"1","[38;5;232m[90m[conflicted][38;5;232m Will prefer [1m[34mRefManageR[38;5;232m[22m::cite over any other package.[39m
+"

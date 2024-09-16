@@ -1,0 +1,735 @@
+---
+title: "ConBio Content Outlines"
+author: "Dr. Alicia M. Rich"
+date: "Fall 2024"
+output:
+  bookdown::html_document2:
+    css: "syllabus.css"
+    toc: true
+    toc_location: "before"
+    toc_depth: 4
+    number_sections: true
+    toc_float: true
+    code_folding: "hide"
+    fig_caption: true
+  bibliography: "biol4120_F24.bib"
+  link_citations: true
+  csl: ["/Users/aliciamrich/RStudioMacbook/Bibliographies/plos.csl"]
+params:
+  today:    as_date(now())
+  semester: "Fall 2024"
+  semstart: "2024-08-26" #first Monday of the semester
+  daysweek: [0, 2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
+  time: "16:00" #starting time of the class in 24h format
+  finals: "2024-12-16" #first Monday of finals week
+  local: "/Users/aliciamrich/RStudioMacbook/GitRepos/teaching/"
+editor_options: 
+  chunk_output_type: inline
+  
+  
+---
+
+
+
+
+# Foundations of Conservation Biology
+
+## Ch 1. The State of Our Planet
+
+### W1D1 8/26/2024
+
+#### State of the Global Environment (7)
+
+##### Land
+More than 50% of the inhabitable land surface has been transformed in some way to support the growing human population.
+Most habitat loss has occurred in the last 100-200 years.
+>Figure 1.5
+
+##### Mediterranean Forests and Temperate Forests
+More than 2/3 of the habitat was converted to other land-uses (mostly agriculture) by 1950.
+
+##### Temperate Broadleaf Forests, Tropical and Subtropical Dry Forests, Flooded Grasslands and Savannas, Tropical and Subtropical Grasslands
+More than half of the land area was lost by 1990.
+
+##### Desertification
+>Desertification occurs when soil degradation by human activity causes relatively dry areas of land to become increasingly arid and lose their water bodies, vegetation, and wildlife.
+
+##### Fragmentation
+Most of the land-based habitats not heavily polluted or desertified are highly fragmented.
+More than 70% of the world's forests are within 1 km of a forest edge.
+
+#### Climate
+There is consensus among scientists that Earth's climate in changing rapidly and that these changes are almost entirely due to human activities.
+Anthropogenic emission of greenhouse gases have increased dramatically in the postindustrial era, reaching unprecedented concentrations.
+>Figure 1.6A
+
+The planet's average surface temperature has warmed by 1.4 degrees F
+>Figure 1.6B
+  
+  This was measured by detailed observations of the Earth's surface temperature assembled and analyzed by several independent research groups
+    Cooborated by other observations:
+      -Rising sea levels
+      -Ocean acidification
+      -Decreased Snow and Ice Cover
+      -Increased frequency and severity of extreme events like fires and hurricanes
+      >Figure 1.6C-F
+
+##### Species Redistribution
+Influencing food security and patterns of disease transmission
+Altering the Phenology of Species
+  -Biological asychornies
+
+#### Oceans
+Oceans and seas cover 70% of the Earth's surface and represent 99% of the living space on the planet
+Generate roughly half of all the oxygen we breathe
+Produce a third of the oil and gas we burn
+Absorb nearly 30% of the carbon dioxide we generate
+Nearly 66% of the ocean and 77% of exclusive economic zones have shown increased human impact, driven mostly by effects on marine ecosystems imposed by fishing, climate change, and ocean- and land-based stressors.
+>Figure 1.7
+>Exclusive Economic Zones are areas of the sea where nations have exclusive rights for exploration and use of marine resources.
+
+#### Freshwater
+Most of the water on earth is either saline or frozen.
+
+##### Dams
+Humans now appropriate more than half of all accessible freshwater runoff
+  -Most of that (70%) is for agriculture.
+2/3 of all of Earth's rivers were regulated by the turn of this century.
+Dams have altered the global flux of water and sediment from contents to oceans.
+  -Little water now reaches the sea from the Colorado, Nile, and Ganges Rivers
+  -On a global basis, 48% of river volume is moderately to severely affected by either flow regulation or fragmentation, or both
+  >Figure 1.8
+  
+##### Wetlands
+Long-term loss of natural wetlands averaged 54% to 57% but may have been as high as 87% since 1700 CE.
+Inland wetland loss is occuring faster and more broadly than coastal wetland loss.
+
+DAY 2------------------------------------------------------------
+
+### State of the World's Biodiversity
+#### Global Extinctions
+#### Local Extirpations
+#### Population Decay
+#### Mass Mortality Events
+#### Genetic Diversity
+#### Biotic Homogenization
+### Seeds of a Good Anthropocene
+#### Six reasons to be optimistic
+#### The next Generation of Champions
+
+-----------WEEK 2------------------------------------------------
+
+## Ch 2. The Rise of Conservation Biology
+DAY 1------------------------------------------------------------
+*NO CLASS*
+Cover 26 - 38 independently
+
+### Origins of Conservation {.independent}
+>The Anthropocene is an era of unprecedented biological change, characterized by large declines of wildlife populations, local extirpations of many species, rapidly increasing rates of global extinction, and homoegenization of biological communities across the planet's oceans and land surface.
+
+**The Primary Goals of Conservation Biology**
+1. To investigate and describe the full variety of life on the planet./
+2. To evaluate and predict the effects of human activities on biodiversity./
+3. To develop practical solutions to protect and manage biodiversity sustainably./
+
+#### Premodern societies {.independent}
+Significant environmental degradation has always accompanied humankind.
+**The Noble Savage Trope**
+An idea that romanticizes primitive cultures as symbolizing the innate goodness of humanity, free from the corrupting influence of civilization.
+
+#### First game and nature reserves {.independent}
+#### Foundations of forest conservation {.independent}
+#### Foundation of the "National Park" {.independent}
+
+[Video on Bialowieza Forest](https://oup-arc.com/e/cardinale-v2.1)
+
+[Video on Yellowstone National Park](https://oup-arc.com/e/cardinale-v2.2)
+
+#### Intellectual foundations in the United States
+
+**Romantic Transcendentalism**
+
+[Video on Thoreau](https://oup-arc.com/e/cardinale-v2.3)
+
+**Intrinsic Value**
+
+**Preservationist Ethic**
+
+**Resource Conservation Ethic**
+
+**Maximum Sustainable Yield**
+
+**Sustainable Forest Management**
+
+**Evolutionary-Ecological Land Ethic**
+
+[Aldo Leopold's Land Ethic](https://oup-arc.com/e/cardinale-v2.4)
+
+**Ecosystem-Based Management**
+
+DAY 2------------------------------------------------------------
+
+### Contemporary Conservation Biology
+>Add slides from Table 2.1 Here
+
+**Post-War Economic Growth**
+-deregulation of businesses and industry to encourage postwar prosperity
+
+***The Golden Age*** (1950s-1970s)
+-Unprecedented growth of manufacturing and industry
+-vast development of public works in energy, sanitation, and transportation systems
+-unrestrained urban sprawl
+-widespread introduction of fertilizers, pesticides, and heavy machinery in agriculture
+
+#### Consequences of Economic Expansion
+
+##### London's Great Smog (1952)
+Thousands died and 100,000 fell ill after a blanket of smog covered London for five days in 1952. Cold weather combined with windless conditions allowed airborne nitrogen oxides, sulfur dioxide, and soot from coal burning to form a thick layer of smog over the city. Recent research has shown that 12,000 premature deaths can be partially attributed to this smog.
+
+##### Love Canal (1953)
+In the 1940s, the Hooker Chemical Company began dumping 21,000 tons of industrial waste into the Love Canal near Niagara Falls, NY. After the site was later sold and developed, Love Canal residents reported strange odors and blue goo bubbling into their basements. High rates of asthma, miscarriages, mental disabilities, and other health problems brought Love Canal into the spotlight in 1978, and subsequent surveys found that 56% of children born there between 1974 and 1978 had birth defects. New York State Health Commissioner David Axelrod called the incident a “national symbol of a failure to exercise a sense of concern for future generations.” The U.S. government soon after passed the Superfund law.
+
+##### Bikini Atoll (1954)
+Between 1946 and 1958, the United States detonated 23 nuclear devices at Bikini Atoll. In 1954, one of those detonations exposed 23 crew members of the Japanese fishing vessel Lucky Dragon 5 to radioactive fallout, leading to acute radiation sickness. Years of nuclear testing so contaminated the soil and water at Bikini Atoll that the site was ultimately rendered a nuclear wasteland, with radiation levels in 2016 continuing to be above the established safety levels for human habitation. The United States ultimately paid the islanders and their descendants $125 million in compensation for damage caused by the nuclear testing program and displacement from their home island.
+
+##### Minamata Disease (1956)
+In 1956, Chisso Corporation’s industrial wastewater containing highly toxic methylmercury was released into Minamata Bay and the Shiranui Sea. As the mercury bioaccumulated in shellfish and fish that were eaten by the local populace, individuals began to show signs of neurological disorder, including numbness and difficulty seeing, hearing, and swallowing. Initial symptoms were followed by severe convulsions, coma, and eventual death, and 2265 fatalities are recognized as a direct consequence of this pollution event.
+
+##### DDT (1962)
+After World War II, use of the pesticide dichlorodiphenyltrichloroethane (DDT) was rampant. DDT was promoted as a wonder chemical: the solution to pest problems large and small. But in her groundbreaking 1962 book Silent Spring, Rachel Carson highlighted the dangers of DDT and the disastrous consequences of the indiscriminate use of insecticides on the environment and its wildlife. Carson’s book, and testimony before the U.S. Congress, helped trigger the establishment of the U.S. Environmental Protection Agency, which subsequently banned the use of DDT.
+
+##### Santa Barbara Oil Spill (1969)
+The third-largest oil spill in U.S. history fouled the Santa Barbara Channel off the coast of California. Prominent media coverage, with pictures of seabirds, dolphins, sea lions, and elephant seals covered in oil, sparked public outrage.
+
+#### Cuyahoga River (1969)
+After being polluted for decades with industrial waste, an oil slick on Cleveland’s Cuyahoga River caught fire. A subsequent picture in Time magazine of flames leaping from the water to engulf a ship helped catalyze the environmental movement in the United States.
+
+##### Seveso Disaster (1976)
+In July of 1976, an explosion at a chemical manufacturing plant north of Milan, Italy, released tetrachlorodibenzo-p-dioxin (TCDD) into the atmosphere, adversely affecting the nearby town of Seveso. Shortly thereafter 3300 animals died and many more were euthanized to prevent the spread of contamination into the food chain. Children were hospitalized with skin inflammation, and nearly 500 people were found to have skin lesions.
+
+##### Portsall Oil Spill (1978)
+A huge crude oil tanker, the Amoco Cadiz, ran aground on Portsall Rocks off the coast of Brittany, France, split into three parts, and leaked 1,604,500 barrels of crude oil. The spill contributed to the largest loss of marine life ever registered from an oil spill. Millions of dead sea urchins and mollusks washed ashore after the event. More than 20,000 dead birds were recovered, and dead oysters were approximated at 9000 tons.
+
+
+#### Formation of Conservation Biology as a Discipline
+
+#### The Conservation Biology Explosion
+>Figure 2.7 The growing interdisciplinary nature of conservation biology
+
+#### Core Principles and Values of Conservation
+Michael Soule's essay: *What is Conservation Biology*
+-laid out key characteristics of the discipline
+-contrasted it with environmentalism, which is based largely on philosophical, religious, and ethical arguments
+-argued that conbio was a new scientific discipline and a **crisis discipline** at its core
+
+>**Normative** = Subjective, Value based
+>**Positive**  = Objective, evidence-based
+
+#### Soule's Normative Postulates
+>Figure 2.8
+
+1. Diversity of organisms is good.
+2. Ecological complexity is good.
+3. Evolution is good.
+4. Biodiversity has intrinsic value.
+
+>criticized as being little more than philosophical positions that can neither be proven nor disproven.
+>>As such this doesn't do much to clarify how the field differs from environmentalism.
+
+#### Soule's Functional Postulates
+
+1. Many species that constitute natural communities are products of coevolution.
+2. Ecological processes often have thresholds, after which they become discontinuous, chaotic, or suspended.
+3. Genetic and demographic processes have thresholds below which nonadaptive, random forces prevail over adaptive, deterministic forces.
+4. Nature reserves are inherently disequilibrial for large, rare organisms.
+
+#### Kareiva & Marvier's 2012 Paper
+They argued that:
+
+While conservation biology remains a crisis discipline, it is now more objective and evidence-based than it was in the late 1980s (now a **positive discipline**).
+  - no longer a reactive analysis of individual crises where decisions were oncem ade by expert opinion and trial and error.
+    -> now a proactive science in which we try to anticipate crises in advance and be prepared with sicentifically grounded contingency plans.
+  - Core values are now more human-centric
+    -> need to consider a more personal role for people in conservation of human-dominated landscapes
+
+##### The Revised Normative Postulates
+>Box 2.2
+
+1. Conservation must occur within human-altered landscapes.
+2. Conservation will be a durable success only if people support conservation goals.
+3. Conservationists must work with corporations.
+4. Only by seeking to jointly maximize conservation and economic objectives is conservation likely to succeed.
+5. Conservation must not infringe on human rights and must embrace the priniciples of fairness and gender equity.
+
+>To properly take account of differing value systems, practitioners need to understand how to use decision making tools that integrate objective evidence-based views with subjective value-based views
+>>***Structured Decision Making***
+
+### Structured Decision Making
+-an approach for the careful and organized analysis of problems relating to natural resource management decisions that integrate objective, evidence-based views with subjective, value-based views.
+  -> roots in economics that date back to the 1940's.
+#### The goals of SDM
+1. Integrate data-driven scientific evidence with human values
+2. Make conservation and management decisions transparent
+3. Help ensure that decisions are repeatable so that different managers who are faced with the same information can come to the same decision
+
+SDM describes a suite of decision-making tools that share a set of common features.
+1. Engaging stakeholders, experts, and policy makers in a join decision-making process
+2. Allowing all parties to clearly articulate and evaluate their differing objectives and desired outcomes
+3. working through a formal process to identify and evaluate alternative management options
+4. Using data and models to quantify the consequences of different management actions
+5. Optimizing trade-offs among alternatives that occur due to different human values.
+
+-----------WEEK 3------------------------------------------------
+DAY 1------------------------------------------------------------
+
+## Ch 3. Biodiversity Concepts and Measurement
+
+### Introduction to Biodiversity
+#### Defining Biodiversity
+Overview: Why biodiversity is critical for ecosystem function and species survival
+Introduction to the hierarchical levels of biodiversity (genetic, species, and ecosystem diversity)
+
+Biological variation is a continuum, and it is notoriously difficult to divide life into discrete categories. 
+But this helps organize our thinking, facilitate research, and define boundaries for conservation and management (Figure 3.1).
+
+### Hierarchical Levels of Biodiversity (53 - 65)
+#### Genetic Diversity
+Importance of genetic diversity for the adaptability and resilience of populations
+Examples of how genetic diversity helps species survive environmental changes
+
+#### Species Diversity
+Overview: Species richness (number of species) and evenness (distribution of individuals among species)
+Role of species diversity in maintaining ecosystem stability
+
+#### Ecosystem Diversity
+Definition: Variability among ecosystems within a landscape or region
+Examples of ecosystems and their functions (e.g., forests, wetlands, coral reefs)
+
+### Genetic Diversity
+
+#### Sources of Genetic Variation
+##### Mutation
+Definition and role in creating new genetic material
+Types of mutations: beneficial, neutral, harmful
+
+##### Recombination
+Genetic recombination during sexual reproduction
+How recombination increases genetic diversity in offspring
+
+##### Gene Flow
+Exchange of genes between populations
+Importance of gene flow in preventing genetic isolation and inbreeding depression
+
+#### Measures of Genetic Diversity
+##### Heterozygosity
+Definition: The presence of different alleles at a gene locus
+Importance of heterozygosity for the survival of populations
+##### Allelic Diversity
+The number of different alleles in a population
+Role in increasing the potential for adaptive responses to environmental change
+##### Effective Population Size
+Concept of effective population size and its influence on genetic diversity
+Examples of species with low effective population sizes and their conservation concerns
+
+### Species Diversity
+#### The Species Concept
+##### Biological Species Concept
+Definition: Species as groups of interbreeding individuals that are reproductively isolated from others
+Strengths and limitations of this concept
+
+##### Morphological Species Concept
+Definition: Species classified based on physical characteristics
+Usefulness in paleontology and cryptic species identification
+
+##### Phylogenetic Species Concept
+Definition: Species as the smallest group of individuals sharing a common ancestor
+Advantages for evolutionary conservation
+
+##### Debate Around Species Concepts
+Discussion on the limitations of defining species and the implications for conservation
+Examples of species complexes where defining species is challenging (e.g., cryptic species)
+
+### Case Study: Genetic and Species Diversity in Conservation
+#### Example: Conservation of a Small Isolated Population
+Challenges of maintaining genetic diversity in isolated populations
+Role of gene flow and managing effective population sizes
+#### Example: The Role of Species Concepts in Conservation Decisions
+Implications of different species concepts for prioritizing species conservation
+How the reclassification of species can change conservation strategies (e.g., subspecies vs. species)
+
+DAY 2------------------------------------------------------------
+
+### Functional Traits and Phylogenetic Diversity (66 - 79)
+### Community and Ecosystem Diversity
+#### Tropic Structure
+#### Food Web Complexity
+#### Species Composition
+### The Multiple Scales of Biodiversity
+
+-----------WEEK 4------------------------------------------------
+
+## Ch 4. Global Patterns and Drivers of Biodiversity
+### Biodiversity through Geologic Time (80 - 86) {.skip}
+#### Formation of Early Life
+#### Radiation Events
+#### Historical Extinctions
+DAY 1------------------------------------------------------------
+
+### Global Patterns of Biodiversity (87 - 98)
+#### How many species are there?
+#### Realms, biomes, and ecoregions
+#### The most diverse ecoregions
+#### Biodiversity hotspots
+#### Latitudinal gradients
+
+DAY 2------------------------------------------------------------
+
+### Drivers of Biodiversity (99)
+#### Evolutionary drivers
+#### Ecological drivers
+#### Synopsis
+
+-----------WEEK 5------------------------------------------------
+
+# Importance of Biodiversity (115)
+
+DAY 1------------------------------------------------------------
+
+## Ch 5. The Many Values of Biodiversity (117 - 139)
+### Values and Ethics
+### Types of Value Systems
+#### Intrinsic Values
+#### Instrumental Values
+#### Relational Values
+### Ethical Worldviews
+#### Anthropocentrism
+#### Biocentrism
+#### Ecocentrism
+
+DAY 2------------------------------------------------------------
+
+## Ch 6. Biodiversity and Ecosystem Services (141-180)
+### What are Ecosystem Services?
+### History of Ecosystem Services
+#### Ecosystem Valuation
+#### Biodiversity and Ecosystem Function
+#### The Millennium Ecosystem Assessment
+### Types of Ecosystem Services
+#### Supporting Services
+#### Provisioning Services
+#### Regulating Services
+#### Cultural Services
+#### Alternative Frameworks
+### Biotic Control of Ecosystem Services
+#### Functional Traits
+#### Biodiversity
+### Ecosystem Markets and Payments for Ecosystem Services
+
+## Ch 7. Ecological Economics {.skip}
+### Principles of Ecological Economics
+### Decision-Making Analyses
+#### Cost-Effectiveness Analysis
+#### Cost-benefit analysis
+#### Multicriteria Decision Analysis
+### Total Economic Value (TEV) Framework
+#### Direct Use Value
+#### Indirect Use Value
+#### Option Value
+#### Existence Value
+#### Estimates of TEV
+### Methods of Valuing Ecosystem Services
+#### Revealed Preference Methods
+#### Real Market Techniques
+#### Surrogate Market Techniques
+#### Cost-Based Techniques
+#### Stated Preference Methods
+#### Benefits Transfer Method
+### One Final Comment
+
+-----------WEEK 6------------------------------------------------
+
+# Threats to Biodiversity
+
+DAY 1------------------------------------------------------------
+
+## Ch 8. Extinction
+### Global Patterns of Endangerment (215 - 225)
+#### The IUCN Red List
+#### Estimates of Global Extinction
+
+### Drivers of Extinction (226 - 229)
+>This section is just a preview for later chapters
+
+#### Habitat Loss
+*This will be a whole chapter later*
+
+#### Overexpoitation
+*This will be a whole chapter later*
+
+#### Invasive Alien Species
+*This will be a whole chapter later*
+
+#### Climate Change
+*This will be a whole chapter later*
+
+#### Most Threatening Factors
+
+DAY 2------------------------------------------------------------
+
+### Local Changes in Biodiversity (230 - 248)
+
+#### Species-area relationships
+#### Empirical Measures
+#### Better Monitoring and Assessment Programs
+
+
+### Controls of Extinction Risk
+#### Demographic Parameters
+#### Ecological Controls
+#### Life-History Traits
+#### Stochastic Processes
+
+-----------WEEK 7------------------------------------------------
+
+DAY 1------------------------------------------------------------
+
+## Ch 9. Habitat Loss, Fragmentation, and Degradation
+### Habitat Loss
+#### Primary Drivers of Habitat Loss
+#### Habitat Loss by Biome
+#### Future Development Threats
+
+### Habitat Fragmentation
+#### Biological Consequences of Fragmentation
+#### Species-specific responses to Fragmentation
+
+DAY 2------------------------------------------------------------
+
+### Habitat Degradation
+#### Pollution
+#### Desertification
+#### Erosion and Sedimentation
+
+-----------WEEK 8------------------------------------------------
+DAY 1------------------------------------------------------------
+### Metapopulations and Landscape Mosaics
+#### The Classic Metapopulation Model
+#### Source-Sink Dynamics
+#### Conservation of Metapopulations
+
+DAY 2------------------------------------------------------------
+***MIDTERM EXAM***
+
+-----------WEEK 9------------------------------------------------
+DAY 1------------------------------------------------------------
+***NO CLASS - FALL BREAK***
+
+DAY 2------------------------------------------------------------
+## Ch 10. Overexploitation (293 - 321)
+### History of Overexploitation
+### Psychology of Overexploitation
+
+### Types of Overexploitation
+#### Commerical Exploitation
+#### Subsistence Overexploitation
+#### Recreational Overexploitation
+
+### Theory of Sustainable Harvesting {.skip}
+#### Sustainable Yield
+#### Fixed Quota (Q) Harvesting
+#### Fixed Effort (Proportional) Harvesting
+#### Limitations of MSY Models
+
+-----------WEEK 10-----------------------------------------------
+DAY 1------------------------------------------------------------
+## Ch 11. Invasive Alien Species (329 - 368)
+### Overview of the Problem
+
+### The Population Biology of IAS
+#### Introduction of Alien Species
+#### Establishment of Alien Species
+#### Spread of Invasive Alien Species
+
+### Impacts of Invasive Alien Species
+#### Impacts on Biodiversity
+#### Impacts on Ecosystems
+#### Economic Impacts
+#### Positive Values of IAS
+
+### Management and Control
+#### Risk Assessment
+#### Risk Management
+
+DAY 2------------------------------------------------------------
+
+## Ch 12. Climate Change (369 - 402)
+### Anthropogenic Climate Change
+
+### Predicted Response to Climate Change
+#### Methods and Models
+#### Current Forecasts
+
+### Documented Responses to Climate Change
+#### Population Decay and Local Extirpation
+#### Geographic Range Shifts
+#### Altered Phenologies
+#### Biome Regime Shifts and Alternative States
+#### Change in Ecosystem Services
+
+-----------WEEK 11-----------------------------------------------
+DAY 1------------------------------------------------------------
+
+### Managing Effects of Climate Change on Biodiversity
+#### Establishing Refugia and Safe Havens
+#### Optimizing Migration Pathways
+#### Building Evolutionary Resilience
+#### Using Biodiversity for Climate Mitigation
+#### Developing Green Infrastructure
+
+# Approaches to Conservation
+
+DAY 2------------------------------------------------------------
+
+## Ch 13. Species-Level Conservation
+### Goals of Species-Level Conservation
+### Challenges to Conserving Small Populations
+#### Demographic Stochasticity
+#### Environmental Stochasticity
+#### Loss of Genetic Variability
+
+-----------WEEK 12-----------------------------------------------
+DAY 1------------------------------------------------------------
+
+### Effective Population Size
+#### Determining Effective Population Size
+#### Unequal Sex Ratio
+#### Variation in Reproductive Output
+#### Population Fluctuations and Bottlenecks
+
+DAY 2------------------------------------------------------------
+
+### Extinction Vortices
+### Estimating Population Size
+#### Census
+#### Capture-Mark-Recapture Techniques
+
+-----------WEEK 13-----------------------------------------------
+DAY 1------------------------------------------------------------
+
+### Models of Population Size
+#### Geometric Growth Model
+#### Exponential Growth Model
+#### Logistic Growth Model
+#### Age- and Stage-based Models
+#### Stochastic Models
+
+
+### Predicting Population Persistence
+#### Minimum Population Size
+#### Population Viability Analysis
+
+### Conservation Trade-Offs
+
+DAY 2------------------------------------------------------------
+
+## Ch 14. Community and Ecosystem Conservation
+### Classification of Protected Areas
+#### Strict Nature Reserves and Wilderness Areas (Category I)
+#### National Parks (Category II)
+#### Natural Monuments (Category III)
+#### Habitat/Species Management Area (Category IV)
+#### Protected Landscape/Seascape (Category V)
+#### Managed Resource Protected Area (Category VI)
+
+### Global Status of Protected Areas
+
+-----------WEEK 14-----------------------------------------------
+DAY 1------------------------------------------------------------
+
+### Approaches for Choosing Protected Areas
+#### Hotspots of Biodiversity
+#### Ecoregions
+#### Political and Economic Boundaries
+#### Ecosystem Services
+#### Areas of Cultural Importance
+
+### Effectiveness of Protected Areas
+#### Terrestrial Protected Areas
+#### Marine Protected Areas
+
+### Impacts on Human Well-Being
+
+### Predictors of Success
+#### Effective Management
+#### Stakeholder and community involvement
+#### Integrated social development and conservation goals
+
+DAY 2------------------------------------------------------------
+***NO CLASS - THANKSGIVING BREAK***
+
+-----------WEEK 15-----------------------------------------------
+
+## Ch 15. Landscape-Scale Conservation
+
+DAY 1------------------------------------------------------------
+
+### Creating Networks of Protected Areas
+#### Establishing New Protected Areas
+#### Criteria used to select and prioritize new protected areas
+#### Tools used to optimize selection of protected areas
+
+### Connecting Individual Protected Areas into Networks
+#### Incorporating unprotected areas into conservation plans
+#### Conservation opportunities in urban habitat
+#### Conservation opportunities in agricultural habitat
+#### Conservation opportunities in mixed-use habitat
+
+DAY 2------------------------------------------------------------
+
+### Managing the Conservation Landscape
+#### Monitoring
+#### Modeling
+#### Ecosystem-based Management
+
+### Landscape-Scale Challenges
+
+-----------WEEK 16-----------------------------------------------
+DAY 1------------------------------------------------------------
+
+## Ch 16. Ex Situ Conservation
+### Ex Situ Conservation Facilities
+#### Zoos and aquariums
+#### Botanical gardens
+#### Gene banks and seed banks
+
+### Contributions to In Situ Conservation
+#### Captive-breeding programs
+#### Reintroduction and reinforcement
+#### Public Education and engagement
+
+### Final Throughts on Ex Situ Conservation
+
+DAY 2------------------------------------------------------------
+
+## Ch 17. Conservation and Sustainable Development
+### What is Sustainable Development?
+
+### International Efforts to Achieve Sustainable Development
+#### The United Nations
+#### International Conventions
+
+### Funding for Sustainable Development
+#### The World Bank
+#### Global Environment Facility
+#### Individual Governments
+#### Non-governmental organizations
+
+### Examples of Sustainable Development Projects
+#### Ecotourism and Biodiversity
+#### Illegal Wildlife Trade
+#### Fisheries
+#### Climate Change
+
+### The Future Success of Sustainable Development
+
+### Concluding Remarks
