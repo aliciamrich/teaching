@@ -318,18 +318,10 @@ Among subpopulations of the same species
 Among species
 
 #### Sources of Genetic Variation
-
-##### Population Genetics
->**What is a Population?**
->>A group of individual organisms of the same species living within a given (or particular) geographical area at the same time. 
->>The geographical area is usually defined to be of a size in which individuals are likely to find mates and reproduce.
->>Species that are geographically widespread are often subdivided into distinct breeding groups that live in different geographical areas.
-
-Genetic diversity among individuals in a population arises because the genes on those chromosomes are represented by different alleles
-Alleles are different forms of the same gene
--sequences of DNA that are found at the same gene locus (physical, fixed location where a gene sits on a chromosome) but that code for the production of different proteins.
-The collection of alleles across multiple gene loci is referred to as an individual’s genotype.
-
+##### What is a Population?
+A group of individual organisms of the same species living within a given (or particular) geographical area at the same time. 
+The geographical area is usually defined to be of a size in which individuals are likely to find mates and reproduce.
+Species that are geographically widespread are often subdivided into distinct breeding groups that live in different geographical areas.
 
 ##### Mutation
 Definition and role in creating new genetic material
@@ -383,9 +375,6 @@ How the reclassification of species can change conservation strategies (e.g., su
 DAY 2------------------------------------------------------------
 
 ### Functional Traits and Phylogenetic Diversity (66 - 79)
-
-[Video 3.2 How to make a phylogenetic tree.](https://oup-arc.com/e/cardinale-v3.2)
-
 ### Community and Ecosystem Diversity
 #### Tropic Structure
 #### Food Web Complexity

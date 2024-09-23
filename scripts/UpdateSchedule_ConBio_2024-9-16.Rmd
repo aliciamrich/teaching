@@ -22,7 +22,7 @@ params:
   daysweek: [0, 2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
   time: "16:00" #starting time of the class in 24h format
   finals: "2024-12-16" #first Monday of finals week
-  local: "/Users/arich/Library/CloudStorage/GoogleDrive-aliciamrich@gmail.com/Other computers/My MacBook Pro/RStudioMacbook/GitRepos/teaching/"
+  local: "/Users/aliciamrich/RStudioMacbook/GitRepos/teaching/"
 editor_options: 
   chunk_output_type: inline
   
@@ -295,10 +295,3 @@ gtsave(schedule_gt_conbio, paste0(params$local, "schedules/biol4120_schedule_F24
 
 schedule_gt_conbio
 ```
-
-
-
-```{r message=FALSE, warning=FALSE, include=FALSE}
-schedule_hhe    <- read.recent.version.csv("data", "ScheduleHHEF24_")
-```
-
