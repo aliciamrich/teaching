@@ -440,3 +440,10 @@ How does the location and reach of wildfires magnify or alter the health risks a
    - **B. Long-Term Trends**
      - Looking at longitudinal data showing the increase in wildfires and related health impacts over the last few decades
 
+
+# Exam Questions
+
+```{r}
+
+```
+
