@@ -22,7 +22,7 @@ params:
   daysweek: [0, 2] #meeting schedule in coded format (e.g., MW = c(0, 2) or TR = c(1, 3))
   time: "16:00" #starting time of the class in 24h format
   finals: "2024-12-16" #first Monday of finals week
-  local: "/Users/arich/Library/CloudStorage/GoogleDrive-aliciamrich@gmail.com/Other computers/My MacBook Pro/RStudioMacbook/GitRepos/teaching/"
+  local: "/Users/aliciamrich/RStudioMacbook/GitRepos/teaching/"
 editor_options: 
   chunk_output_type: inline
   
@@ -79,8 +79,8 @@ learning.outcomes <- tribble(
   cols_width(stub()        ~ px(300),
              Outcome       ~ px(500))
 
-gtsave(learning.outcomes, paste0(params$local, "dataframes/biol4120_learningoutcomes.html"))
-gtsave(learning.outcomes, paste0(params$local, "dataframes/biol4120_learningoutcomes.png" ))
+gtsave(learning.outcomes, "biol4120_learningoutcomes.html")
+gtsave(learning.outcomes, "biol4120_learningoutcomes.png")
 ```
 
 ```{r grade-breakdown-tbl, message=FALSE, warning=FALSE, include=FALSE}
@@ -148,8 +148,8 @@ gt(rowname_col = "Format") %>%
              N_dropped     ~ px(85),
              Points_total  ~ px(85),
              Percent_total ~ px(100))
-gtsave(grade.breakdown, paste0(params$local, "dataframes/biol4120_gradebreakdown.html"))
-gtsave(grade.breakdown, paste0(params$local, "dataframes/biol4120_gradebreakdown.png"))
+gtsave(grade.breakdown, "biol4120_gradebreakdown.html")
+gtsave(grade.breakdown, "biol4120_gradebreakdown.png")
 ```
 
 
@@ -202,8 +202,8 @@ quiz.rubric <- tribble(
                                    size   = "large",
                                    weight = "bold")),
             locations = cells_stub())
-gtsave(quiz.rubric, paste0(params$local, "dataframes/biol4120_quizrubric.html"))
-gtsave(quiz.rubric, paste0(params$local, "dataframes/biol4120_quizrubric.png"))
+gtsave(quiz.rubric, "biol4120_quizrubric.html")
+gtsave(quiz.rubric, "biol4120_quizrubric.png")
 ```
 
 ```{r class-culture-tbl, message=FALSE, warning=FALSE, include=FALSE}
@@ -289,8 +289,8 @@ class.culture <- tribble(
             locations = cells_stub(rows = Icon == "ban")) %>%
   cols_label(Rule  ~ "")
 
-gtsave(class.culture, paste0(params$local, "dataframes/classculture.html"))
-gtsave(class.culture, paste0(params$local, "dataframes/classculture.png"))
+gtsave(class.culture, "classculture.html")
+gtsave(class.culture, "classculture.png")
 ```
 
 ```{r resources-tbl, message=FALSE, warning=FALSE, include=FALSE}
@@ -364,9 +364,8 @@ gt(rowname_col = "image") %>%
   cols_width(stub()   ~ px(50),
              Resource ~ px(100),
              Comment  ~ px(700))
-
-gtsave(necessary.resources, paste0(params$local, "dataframes/conbioresources.html"))
-gtsave(necessary.resources, paste0(params$local, "dataframes/conbioresources.png"))
+gtsave(necessary.resources, paste0(params$local, "dataframes/biol4120_necessaryresources.html"))
+gtsave(necessary.resources, paste0(params$local, "dataframes/biol4120_necessaryresources.png"))
 ```
 
 ```{r schedule-tbl, message=FALSE, warning=FALSE, include=FALSE}
