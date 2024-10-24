@@ -1,0 +1,391 @@
+* {
+  font: Helvetica;
+}
+
+.hidden-heading {
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around; /* Distribute items evenly */
+  flex-flow: row wrap;
+  align-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+.flex-item {
+  position: relative; /* Allows absolute positioning of child elements */
+  padding: 5px;
+  margin: 5px;
+}
+
+.gif-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+.gif-textcontainer {
+  height: 100%;
+  flex: 1 1 200px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 5px;
+  align-self: flex-start;
+}
+
+.gif-textbox {
+  font-size: 18;
+  line-height: 1.3;
+  color: #43475BFF;
+}
+
+.tagline-text {
+  position: relative; /* Allows absolute positioning of child elements */
+  font-size: 18pt;
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 1px 1px;
+  color: #43475BFF;
+  
+}
+
+
+.gif-item {
+  position: relative; /* Allows absolute positioning of child elements */
+  flex: 1 1 400px;      /* Flex-grow, flex-shrink, flex-basis */
+  margin: 0px;
+}
+
+.gif-item img {
+  position: relative; /* Allows absolute positioning of child elements */
+  width: 50%;
+}
+
+.table-gif {
+  display: flex;
+  flex: 1 1 400px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+
+.table-container {
+  display: flex;
+  justify-content: space-around; /* Distribute items evenly */
+  flex-wrap: wrap;               /* Allow items to wrap to the next line */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+.image-item {
+  flex: 1 1 300px;      /* Flex-grow, flex-shrink, flex-basis */
+  margin: 10px;
+  text-align: center;   /* Center-align content inside the item */
+}
+
+.img-box {
+  border: 2px solid #6B6B6B; /* Gray dark border */
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #BAB2AE7F; /* Gray light background */
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 12px; /* Rounded corners for images */
+}
+
+
+.instructor-container {
+  display: flex;
+  align-items: flex-start; /* Aligns the image and text at the top */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column; /* Stacks box-header-p and info-box-p vertically */
+  flex: 1; /* Ensures the text takes up the remaining space */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 15px;
+  margin-left: 0px;
+  
+}
+
+.float-container {
+  margin: 40px 15px;
+  
+}
+
+.float-box-p {
+  font-size: 12pt;
+  margin: 0;
+  padding: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #A88F9240;
+  color: #43475BFF;
+  position: relative;
+}
+
+
+.info-box-p {
+  display: flex;
+  position: relative; /* Allows absolute positioning of child elements */
+  align-items: flex-start; /* Aligns items to the top */
+  font-size: 12pt;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #A88F9240;
+  color: #43475BFF;
+  flex-wrap: wrap; /* Allows wrapping of text and image on smaller screens */
+}
+
+.box-header-p {
+  font-size: 18pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #A88F92FF;
+  color: #E8EADFFF;
+}
+.box-superheader-o {
+  font-size: 16pt;
+  margin: 0;
+  padding: 5px 15px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-bottom-style: hidden;
+  background-color: #B1532AFF;
+  color: white;
+}
+
+.box-subheader-o {
+  font-size: 10pt;
+  font-style: oblique;
+  margin: 0;
+  padding: 5px 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-top-style: hidden;
+  background-color: #B1532AFF;
+  color: white;
+}
+
+
+.info-box-image {
+  float: right; /* Floats the image to the right */
+  margin-left: 15px; /* Adds space between the image and the text */
+  margin-bottom: 15px; /* Adds space below the image */
+  max-width: 150px; /* Controls the size of the image */
+}
+
+
+@media (max-width: 768px) {
+  .info-box-image {
+    float: none; /* Disables floating on small screens */
+    display: block;
+    margin: 0 auto 15px auto; /* Centers the image on small screens */
+    max-width: 100%; /* Ensures the image scales on small screens */
+  }
+}
+
+.info-box-o {
+  font-size: 12pt;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #B1532A40;
+  color: #43475BFF;
+}
+
+.box-header-o {
+  font-size: 18pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #B1532AFF;
+  color: white;
+}
+
+.box-superheader-s {
+  font-size: 16pt;
+  margin: 0;
+  padding: 5px 15px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-bottom-style: hidden;
+  background-color: #CBB593FF;
+  color: #43475BFF;
+}
+
+.box-subheader-s {
+  font-size: 12pt;
+  font-style: oblique;
+  margin: 0;
+  padding: 5px 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-top-style: hidden;
+  background-color: #CBB593FF;
+  color: #43475BFF;
+}
+
+
+
+.info-box-s {
+  font-size: 12pt;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #CBB59340;
+  color: #43475BFF;
+}
+
+.box-header-s {
+  font-size: 16pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #CBB593FF;
+  color: #43475BFF;
+}
+
+.info-box-b {
+  position: relative; /* Allows absolute positioning of child elements */
+  font-size: 12pt;
+  margin: 0;
+  padding: 5px 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #CBB59340;
+  color: #43475BFF;
+}
+
+.box-header-b {
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #43475BFF;
+  background-color: #CBB593FF;
+  color: #43475BFF;
+}
+
+.subtle-header {
+  font-size: 16pt;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 5px 15px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-bottom-style: hidden;
+  background-color: #CBB59340;
+  color: #43475BFF;
+}
+  
+.subtle-box {
+  font-size: 10pt;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 5px 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #43475BFF;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #43475BFF;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #43475BFF;
+  border-top-style: hidden;
+  background-color: #CBB59340;
+  color: #43475BFF;
+}
+
