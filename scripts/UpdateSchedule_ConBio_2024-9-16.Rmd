@@ -113,7 +113,7 @@ schedule_gt_conbio <- schedule_conbio %>%
   
   gt(groupname_col = "Theme") %>%
   
-                   rows_add(Date          = as_date("2024-12-19"),
+                   rows_add(Date          = as_date("2024-12-16"),
                             stub          = "calendar",
                             Week          = "",
                             Topic         = "5:00 PM - Final Exam",
